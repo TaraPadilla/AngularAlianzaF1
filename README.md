@@ -1,6 +1,7 @@
-<<<<<<< HEAD
-# Zonaprivada
+# AngularAlianzaF1
+Frontend para zonaprivada de alianza F1
 
+# Zonaprivada
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
 
 ## Development server
@@ -26,7 +27,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# AngularAlianzaF1
-Frontend para zonaprivada de alianza F1
->>>>>>> fbbde3b4e2118da1f9720bb66b01ff20bb966bd3
+
+
