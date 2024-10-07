@@ -1,0 +1,39 @@
+<!-- Contenedor principal del formulario de login -->
+<div class="login-container">
+    <!-- Tarjeta de Angular Material que contiene el formulario -->
+    <mat-card class="login-card">
+      
+      <!-- Título del formulario de login -->
+      <mat-card-header>
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+      </mat-card-header>
+  
+      <!-- Contenido del formulario -->
+      <mat-card-content>
+        <form (ngSubmit)="onLogin()">
+          
+          <!-- Campo de entrada para el nombre de usuario -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Usuario</mat-label>
+            <input matInput type="text" [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+  
+          <!-- Campo de entrada para la contraseña -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" [(ngModel)]="password" name="password" required>
+          </mat-form-field>
+  
+          <!-- Botón para enviar el formulario (Iniciar sesión) -->
+          <button mat-raised-button color="primary" type="submit" class="full-width login-button">Entrar</button>
+        </form>
+      </mat-card-content>
+  
+      <!-- Acciones al final del formulario, como el enlace para "Olvidé mi contraseña" -->
+      <mat-card-actions class="footer-actions">
+        <button mat-button class="forgot-password">Olvidé mi contraseña</button>
+      </mat-card-actions>
+  
+    </mat-card>
+  </div>
+  

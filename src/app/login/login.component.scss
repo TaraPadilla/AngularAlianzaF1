@@ -1,0 +1,103 @@
+/* Host: Contenedor principal del componente de login */
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ocupa toda la ventana del navegador */
+    background: linear-gradient(135deg, #0b354f 0%, #1f6f8b 50%, #e6e6e6 100%); /* Fondo con gradiente de azul profundo a gris */
+  }
+  
+  /* Contenedor del login */
+  .login-container {
+    max-width: 420px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Tarjeta del login */
+  .login-card {
+    background: rgba(11, 53, 79, 0.9); /* Fondo azul con transparencia para un efecto moderno */
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 16px; /* Bordes redondeados */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+  }
+  
+  /* Título de la tarjeta */
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #a8e063; /* Verde lima claro para el título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+  }
+  
+  /* Estilo de los campos del formulario */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  
+    /* Cambiar color del borde del campo */
+    .mat-form-field-outline {
+      .mat-form-field-outline-thick {
+        border-color: #ffffff !important; /* Borde blanco para que destaque mejor */
+      }
+    }
+  }
+  
+  /* Cambiar color de la etiqueta del campo en todos los estados */
+  ::ng-deep .mat-form-field-label {
+    color: #ffffff !important; /* Color de la etiqueta en blanco para asegurar visibilidad */
+  }
+  
+  /* Asegurarse de que las etiquetas sin foco también sean blancas */
+  ::ng-deep .mat-form-field-label:not(.mat-form-field-empty) {
+    color: #ffffff !important; /* Color de la etiqueta blanca incluso cuando el campo no está vacío ni enfocado */
+  }
+  
+  ::ng-deep .mat-form-field-label-wrapper .mat-form-field-label {
+    color: #ffffff !important; /* Color de la etiqueta en blanco en todas las situaciones */
+  }
+  
+  /* Cambiar color del texto dentro del campo */
+  ::ng-deep .mat-mdc-input-element {
+    color: #ffffff !important; /* Texto blanco dentro del campo para buena visibilidad */
+    caret-color: #ffffff !important; /* Color del cursor a blanco para consistencia visual */
+    background-color: transparent !important; /* Fondo transparente para evitar tonos no deseados */
+  }
+  
+  /* Botón de login */
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #ff6f3c, #ffc300); /* Gradiente de naranja coral a amarillo */
+    color: #ffffff;
+    border-radius: 24px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar elevación */
+    transition: background 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+  
+    &:hover {
+      background: linear-gradient(135deg, #ffc300, #ff6f3c); /* Gradiente invertido al pasar el mouse */
+      transform: translateY(-3px); /* Efecto de elevación */
+    }
+  }
+  
+  /* Acción "Olvidé mi contraseña" */
+  .footer-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+    .forgot-password {
+      color: #ff6f3c; /* Naranja coral para el enlace */
+      font-weight: bold;
+      text-decoration: underline;
+      transition: color 0.3s;
+  
+      &:hover {
+        color: #ff8f6b; /* Cambio de color al pasar el mouse */
+      }
+    }
+  }
+  
