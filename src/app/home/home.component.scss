@@ -11,8 +11,8 @@
   
   /* Contenedor principal ajustable y centrado */
   .main-container {
-    width: calc(100% - 40px); /* Deja un margen pequeño a los lados */
-    height: calc(100% - 40px); /* Deja un margen pequeño en la parte superior e inferior */
+    width: auto; /* Deja un margen pequeño a los lados */
+    height: auto; /* Deja un margen pequeño en la parte superior e inferior */
     padding: 20px;
     background: transparent; /* Fondo transparente */
     overflow: hidden; /* Evitar scrolls innecesarios */
@@ -20,6 +20,15 @@
     flex-direction: column; /* Colocar contenido en columna */
     box-sizing: border-box; /* Incluir el padding en el ancho/altura total */
   }
+
+  /* Ajuste para dispositivos móviles */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 10px; /* Reducir el padding en dispositivos móviles */
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura disponible */
+    overflow-y: scroll; /* Permitir el scroll vertical en móviles */
+  }
+}
   
   /* Contenedor del menú lateral y contenido principal fusionado */
   .sidenav-container {
@@ -148,4 +157,9 @@
       }
     }
   }
+
+  .red-icon {
+    color: red; /* Cambiar el color de la "X" a rojo */
+  }
+  
   

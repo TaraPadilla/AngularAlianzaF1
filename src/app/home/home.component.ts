@@ -46,6 +46,8 @@ export class HomeComponent {
     { title: 'Reportes', description: 'Genera reportes de actividades y rendimiento.' },
   ];
 
+  isSidenavOpen = false;
+
   constructor(private router: Router) {}
 
   // Método para manejar la navegación cuando se selecciona una opción del menú
@@ -56,5 +58,9 @@ export class HomeComponent {
   // Método para cerrar el menú
   close() {
     this.isMenuOpen = false; // Cierra el menú
+  }
+
+  toogleIcon(){
+    this.isSidenavOpen = !this.isSidenavOpen;
   }
 }
