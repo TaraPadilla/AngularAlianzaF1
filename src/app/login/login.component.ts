@@ -27,9 +27,14 @@ export class LoginComponent {
 
   constructor(private router: Router) {}
 
+  ngOnInit() {
+    localStorage.removeItem('authToken');  // Eliminar el token cada vez que se carga la página de login
+  }
+
   onLogin() {
     // Simulación de autenticación básica
     if (this.username === 'admin' && this.password === 'admin') {
+      localStorage.setItem('authToken', '123456');
       this.router.navigate(['/home']);
     } else {
       alert('Usuario o contraseña incorrectos');
