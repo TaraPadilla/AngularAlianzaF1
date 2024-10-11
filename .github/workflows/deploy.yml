@@ -31,7 +31,7 @@ jobs:
       # 5. Desplegar en AWS S3
       - name: Deploy to S3
         run: |
-          aws s3 sync ./dist/zonaprivada s3://angularalianzaf1zp --delete
+          aws s3 sync ./dist/zonaprivada/browser/ s3://angularalianzaf1zp --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
