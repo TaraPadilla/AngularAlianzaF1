@@ -3,7 +3,7 @@ name: CI/CD for Angular on AWS S3
 on:
   push:
     branches:
-      - main  # Ejecuta cuando haya un push en la rama main
+      - master  # Ejecuta cuando haya un push en la rama main
 
 jobs:
   build-and-deploy:
