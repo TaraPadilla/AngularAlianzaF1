@@ -31,8 +31,8 @@ export class HomeComponent {
   // Lista de elementos del menú lateral
   menuItems = [
     { label: 'Clientes', route: '/clientes' },
-    { label: 'Propuestas', route: '/propuestas' },
-    { label: 'Proyectos', route: '/proyectos' },
+    { label: 'Propuestas', route: '/proposal' },
+    { label: 'Proyectos', route: '/proposal' },
     { label: 'Tareas Internas', route: '/tareas-internas' },
     { label: 'Reportes', route: '/reportes' },
   ];

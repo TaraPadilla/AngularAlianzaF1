@@ -1,0 +1,48 @@
+id,elemento,tiempo
+1,Almacenamiento de archivos,4
+2,"Gestion CRUD  (Habito, RegistroProgreso, Contenido, Notificacion)",3
+3,Registro y Login,3
+4,"Configuracion de servidor (Backend, Frontend, BD, GIT)",3
+5,"Soporte para múltiples usuarios y roles (Usuarios, Clientes, Perfil, Permisos, Seccion)",6
+6,Inicio (Home),3
+7,Calendario interactivo para la gestión del progreso,6
+8,Tipos de Reportes (Gráficos de Avance),3
+9,"Configuracion de Plataforma Front (Deploy, Prod, Test)",2
+,Backup Pagina/BD/Plataforma,2
+10,Pruebas y depuracion,4
+11,Puesta en Produccion,2
+12,Configuracion Hosting y Dominio,1
+13,Analisis de informacion,1
+14,Documentacion,1
+15,Manejo de sesiones,6
+16,"Servicios de notificación Whatsapp, SMS, Email, Push",4
+17,Pasarela de Pago,6
+18,Carga de archivos,4
+19,Implementacion PWA,6
+20,Landing Page Diseño Básico,5
+21,Landing Page Diseño Avanzado,7
+22,Paginas Internas Dinamica,3
+23,Paginas Estaticas/Informativas,1
+24,Formulario,1
+25,Integracion simple Redes Sociales,1
+26,Integracion Avanzada Redes Sociales,3
+27,Optimizacion y carga de imagenes,2
+28,Mercado Instalacion,6
+29,Subir Contenido Mercado,6
+30,Sistema de búsqueda avanzado,6
+31,Integración con pasarelas de pago,6
+32,Mapa Estatico,3
+33,Mapa interactivo,6
+34,Usuarios Básicos,2
+36,SEO Básico - Configuracion de URLs,1
+37,SEO Avanzado,18
+38,Documentación,1
+39,Puesta en Produccion,1
+40,Plugins/Componente Sencillo,3
+41,Plugins/Componente Intermedio,6
+42,Plugins/Componente Avanzado,12
+,Creacion/Actualizacion/Modernizacion Diseño Interfaz,4
+43,Actualizacion/Modernizacion Diseño Interfaz IU/UX,15
+44,Intensidad Horaria 6 horas,2
+45,Intensidad Horaria 8 horas,4
+46,Intensidad Horaria 10 horas,6

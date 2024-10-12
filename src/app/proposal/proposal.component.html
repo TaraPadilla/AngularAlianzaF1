@@ -1,0 +1,56 @@
+<div class="background">
+    <div >
+        <mat-card class="proposal-card">
+            <mat-card-title>Propuesta</mat-card-title>
+            <div class="mat-elevation-z8">      
+                <table mat-table [dataSource]="dataSource" class="mat-responsive-table">
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <!-- Elemento Column -->
+                    <ng-container matColumnDef="elemento">
+                        <th mat-header-cell *matHeaderCellDef> Elemento </th>
+                        <td mat-cell *matCellDef="let element"> {{element.elemento}} </td>
+                    </ng-container>
+
+                    <!-- Tiempo Column -->
+                    <ng-container matColumnDef="tiempo">
+                        <th mat-header-cell *matHeaderCellDef> Tiempo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+                    </ng-container>
+
+                    <!-- Cantidad Column -->
+                    <ng-container matColumnDef="cantidad">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                        <td mat-cell *matCellDef="let element">
+                            <input matInput [(ngModel)]="element.cantidad" placeholder="Cantidad">
+                          </td>
+                    </ng-container>
+
+                    <!-- Horas Column -->
+                    <ng-container matColumnDef="horas">
+                        <th mat-header-cell *matHeaderCellDef> Horas </th>
+                        <td mat-cell *matCellDef="let element">
+                            <input matInput [(ngModel)]="element.horas" placeholder="Horas">
+                          </td>
+                    </ng-container>
+
+                    <!-- Costo (COP) Column -->
+                    <ng-container matColumnDef="costo">
+                        <th mat-header-cell *matHeaderCellDef> Costo (COP) </th>
+                        <td mat-cell *matCellDef="let element">
+                            <input matInput [(ngModel)]="element.costo" placeholder="Costo">
+                          </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card>
+    </div>
+</div>
