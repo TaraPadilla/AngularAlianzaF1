@@ -1,50 +1,15 @@
-/* Host: Contenedor principal del componente de login */
-:host {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Ocupa toda la ventana del navegador */
-    background: linear-gradient(135deg, #0b354f 0%, #1f6f8b 50%, #e6e6e6 100%); /* Fondo con gradiente de azul profundo a gris */
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
   }
   
-  /* Contenedor del login */
-  .login-container {
-    max-width: 420px;
-    width: 100%;
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
   }
   
-  /* Botón de login */
-  .login-button {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background: linear-gradient(135deg, #ff6f3c, #ffc300); /* Gradiente de naranja coral a amarillo */
-    color: #ffffff;
-    border-radius: 24px; /* Bordes redondeados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para dar elevación */
-    transition: background 0.3s ease, transform 0.2s ease; /* Transición para el hover */
-  
-    &:hover {
-      background: linear-gradient(135deg, #ffc300, #ff6f3c); /* Gradiente invertido al pasar el mouse */
-      transform: translateY(-3px); /* Efecto de elevación */
-    }
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
   }
-  
-  /* Acción "Olvidé mi contraseña" */
-  .footer-actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  
-    .forgot-password {
-      color: #ff6f3c; /* Naranja coral para el enlace */
-      font-weight: bold;
-      text-decoration: underline;
-      transition: color 0.3s;
-  
-      &:hover {
-        color: #ff8f6b; /* Cambio de color al pasar el mouse */
-      }
-    }
-  }
-  
