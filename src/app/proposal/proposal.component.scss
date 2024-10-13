@@ -1,81 +1,57 @@
-/* Fondo de la página principal */
-.background {
-    height: 100vh; /* Ocupa toda la altura de la ventana del navegador */
-    width: 100vw; /* Ocupa todo el ancho de la ventana del navegador */
-    background: linear-gradient(135deg, #0b354f, #1f6f8b); /* Gradiente para el fondo */
-    display: flex; /* Usar Flexbox para centrar el contenedor principal */
-    align-items: flex-start; /* Alinear al inicio para evitar que se desborde hacia arriba */
-    justify-content: center; /* Centrar horizontalmente */
-    overflow: auto; /* Permitir scroll si es necesario */
-    padding-top: 40px; /* Añadir más espacio superior para evitar desbordamiento */
-    box-sizing: border-box; /* Incluir el padding en el ancho/altura total */
-}
-
 /* Contenedor principal ajustable y centrado */
 .main-container {
-    padding: 40px 20px; /* Incrementar el espacio en la parte superior para evitar superposición */
-    background: rgba(255, 255, 255, 0.1); /* Fondo claro para destacar la tabla */
-    overflow: auto; /* Permitir scroll si la tabla es más grande */
-    display: flex; /* Flex para manejar los contenidos hijos */
-    flex-direction: column; /* Colocar contenido en columna */
-    box-sizing: border-box; /* Incluir el padding en el ancho/altura total */
-}
-
-/* Estilo de las tarjetas en el Proposal */
-.proposal-card {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
     display: flex;
-    flex-direction: column; /* Alinear elementos en columna */
-    background: rgba(11, 53, 79, 0.9); /* Fondo azul oscuro con transparencia */
-    color: #ffffff; /* Texto blanco */
-    border-radius: 16px; /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave para el hover */
-    margin: 20px; /* Añadir margen alrededor de las tarjetas para evitar superposiciones */
-    padding: 20px; /* Asegura que el contenido interno tenga suficiente espacio */
-    min-height: 200px; /* Evitar tarjetas demasiado pequeñas */
-    
-    &:hover {
-        transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    }
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-left: 20px; /* Fuerza un margen izquierdo de 20px */
 }
 
 /* Tabla con estilo Material llamativo */
 .mat-responsive-table {
-    width: 100%; /* Ajustar la tabla al ancho de la pantalla */
-    overflow-x: auto;
+    min-width: 600px; /* Mantén un ancho mínimo */
+    width: 100%; /* Ajusta la tabla al ancho del contenedor */
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     border-collapse: collapse;
-    position: relative; /* Asegura que la tabla no se quede detrás de otros elementos */
-    z-index: 10; /* Coloca la tabla por encima de otros elementos que puedan tener un z-index menor */
-    margin-top: 20px; /* Ajustar margen superior para evitar solapamiento */
+    position: relative;
+    z-index: 10;
+    margin-top: 20px; /* Añadir espacio superior */
+    margin-left: 20px; /* Forzar margen izquierdo para pantallas grandes */
+    margin-right: 20px; /* Forzar margen derecho para mantener la simetría */
 }
 
+/* Celdas */
 .mat-header-cell, .mat-cell {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+/* Encabezado de la tabla */
 .mat-header-cell {
-    background-color: #1976d2; /* Color azul vibrante para el encabezado */
+    background-color: #1976d2;
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
 }
 
+/* Celdas de contenido */
 .mat-cell {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro para visibilidad */
+    background-color: rgba(255, 255, 255, 0.1);
     color: #e0e0e0;
 }
 
 /* Estilos para las filas pares */
 .mat-row:nth-child(even) .mat-cell {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo diferente en las filas pares */
-    color: #fff; /* Color de texto que resalta en filas pares */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
+/* Estilos para las filas impares */
 .mat-row:nth-child(odd) .mat-cell {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -88,5 +64,14 @@
 
     .mat-header-cell, .mat-cell {
         padding: 8px;
+    }
+}
+
+/* A partir de 1200px asegurar el margen izquierdo */
+@media (min-width: 1200px) {
+    .mat-responsive-table {
+        margin-left: 20px !important; /* Mantener el margen izquierdo */
+        margin-right: 20px !important; /* Mantener el margen derecho */
+        max-width: calc(100% - 40px); /* Evitar que la tabla se desborde */
     }
 }

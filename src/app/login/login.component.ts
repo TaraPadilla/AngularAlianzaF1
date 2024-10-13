@@ -33,7 +33,8 @@ export class LoginComponent {
 
   onLogin() {
     // Simulación de autenticación básica
-    if (this.username === 'admin' && this.password === 'admin') {
+    if ((this.username === 'admin' && this.password === 'alianzaf123') || 
+        (this.username === 'comercial' && this.password === 'comercial123')) {
       localStorage.setItem('authToken', '123456');
       this.router.navigate(['/home']);
     } else {

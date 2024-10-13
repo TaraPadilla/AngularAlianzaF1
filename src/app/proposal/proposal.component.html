@@ -26,7 +26,8 @@
                     <ng-container matColumnDef="cantidad">
                         <th mat-header-cell *matHeaderCellDef> Cantidad </th>
                         <td mat-cell *matCellDef="let element">
-                            <input matInput [(ngModel)]="element.cantidad" placeholder="Cantidad">
+                            <input matInput [(ngModel)]="element.cantidad" placeholder="Cantidad"
+                            (ngModelChange)="calcularHoras(element)">
                           </td>
                     </ng-container>
 

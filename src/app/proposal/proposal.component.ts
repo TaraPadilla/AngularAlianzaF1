@@ -64,6 +64,16 @@ export class ProposalComponent {
       }
     );
   }
+
+  //Implementar la función para calculaHoras que recibe el tiempo y coloca el valor en la columna horas multiplicando el tiempo por la cantidad
+    calcularHoras(element: any): void {
+      if (element.cantidad && element.tiempo) {
+        element.horas = element.cantidad * element.tiempo;
+        element.costo = element.horas * 31300;
+      } else {
+        element.horas = 0; // O algún valor predeterminado si falta la cantidad o el tiempo
+      }
+    }
 }
 
 
