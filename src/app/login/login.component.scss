@@ -10,61 +10,7 @@
   /* Contenedor del login */
   .login-container {
     max-width: 420px;
-    
     width: 100%;
-    padding: 20px;
-  }
-  
-  /* Tarjeta del login */
-  .login-card {
-    background: rgba(11, 53, 79, 0.9); /* Fondo azul con transparencia para un efecto moderno */
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 16px; /* Bordes redondeados */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
-  }
-  
-  /* Título de la tarjeta */
-  mat-card-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    color: #a8e063; /* Verde lima claro para el título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-  }
-  
-  /* Estilo de los campos del formulario */
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-  
-    /* Cambiar color del borde del campo */
-    .mat-form-field-outline {
-      .mat-form-field-outline-thick {
-        border-color: #ffffff !important; /* Borde blanco para que destaque mejor */
-      }
-    }
-  }
-  
-  /* Cambiar color de la etiqueta del campo en todos los estados */
-  ::ng-deep .mat-form-field-label {
-    color: #ffffff !important; /* Color de la etiqueta en blanco para asegurar visibilidad */
-  }
-  
-  /* Asegurarse de que las etiquetas sin foco también sean blancas */
-  ::ng-deep .mat-form-field-label:not(.mat-form-field-empty) {
-    color: #ffffff !important; /* Color de la etiqueta blanca incluso cuando el campo no está vacío ni enfocado */
-  }
-  
-  ::ng-deep .mat-form-field-label-wrapper .mat-form-field-label {
-    color: #ffffff !important; /* Color de la etiqueta en blanco en todas las situaciones */
-  }
-  
-  /* Cambiar color del texto dentro del campo */
-  ::ng-deep .mat-mdc-input-element {
-    color: #ffffff !important; /* Texto blanco dentro del campo para buena visibilidad */
-    caret-color: #ffffff !important; /* Color del cursor a blanco para consistencia visual */
-    background-color: transparent !important; /* Fondo transparente para evitar tonos no deseados */
   }
   
   /* Botón de login */

@@ -1,5 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-@import './custom-theme.scss';
+$primary: #0b354f;  // Color personalizado para text-primary
+$success: #a8e063;  // Color verde lima para text-success, por ejemplo
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "bootstrap/scss/bootstrap";
