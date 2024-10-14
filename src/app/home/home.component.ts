@@ -1,24 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarModule } from '@fullcalendar/angular'; 
+import { CalendarOptions } from '@fullcalendar/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    MatSidenavModule, // Módulo para el menú lateral (sidenav)
-    MatCardModule,    // Módulo para las tarjetas de contenido
-    MatListModule,    // Módulo para la lista del menú lateral
-    MatButtonModule,  // Módulo para los botones
-    MatIconModule,    // Módulo para los iconos
-    MatToolbarModule, // Módulo para la barra de herramientas
-    CommonModule      // Módulo común para directivas y otros componentes básicos
+    FullCalendarModule,
+    CommonModule, NgbAccordionModule     // Módulo común para directivas y otros componentes básicos
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -37,16 +29,18 @@ export class HomeComponent {
     { label: 'Reportes', route: '/reportes' },
   ];
 
-  // Lista de tarjetas de contenido del Home
+  // De la lista siguiente sin modificar nada mas eliminamos el campo mentors
   cards = [
-    { title: 'Clientes', description: 'Gestiona la información de tus clientes, incluyendo detalles y contacto.' },
-    { title: 'Propuestas', description: 'Visualiza y administra las propuestas enviadas a los clientes.' },
-    { title: 'Proyectos', description: 'Revisa el estado y el avance de los proyectos en curso.' },
-    { title: 'Tareas Internas', description: 'Administra las tareas internas de la empresa para asegurar la productividad.' },
-    { title: 'Reportes', description: 'Genera reportes de actividades y rendimiento.' },
+    { title: 'Clientes',  description: 'Gestiona la información de tus clientes, incluyendo detalles y contacto.', icon: 'bi-people-fill' },
+    { title: 'Propuestas', description: 'Visualiza y administra las propuestas enviadas a los clientes.', icon: 'bi-file-earmark-text-fill' },
+    { title: 'Proyectos', description: 'Revisa el estado y el avance de los proyectos en curso.', icon: 'bi-kanban-fill' },
+    { title: 'Tareas Internas', description: 'Administra las tareas internas de la empresa para asegurar la productividad.', icon: 'bi-list-task' },
+    { title: 'Reportes', description: 'Genera reportes de actividades y rendimiento.', icon: 'bi-bar-chart-fill' },
   ];
 
   isSidenavOpen = false;
+  isOpen: any;
+  calendarOptions!: CalendarOptions;
 
   constructor(private router: Router) {}
 

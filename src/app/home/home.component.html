@@ -1,61 +1,15 @@
-<!-- Fondo de la página principal -->
-<div class="background">
-
-    <!-- Contenedor principal ajustable con fondo transparente -->
-    <div class="main-container">
-  
-      <!-- Contenedor para el menú lateral y el contenido principal -->
-      <mat-sidenav-container class="sidenav-container" >
-        
-        <!-- Menú lateral de navegación (modo side para desplazar contenido) -->
-        <mat-sidenav #sidenav mode="side" [(opened)]="isMenuOpen" class="side-menu" [autoFocus]="false">
-          <!-- Título del Menú Lateral -->
-          <h2 class="menu-title">Panel de Control</h2>
-  
-          <!-- Opciones del Menú (Lista de Navegación) -->
-          <mat-nav-list>
-            <mat-list-item *ngFor="let item of menuItems">
-              <!-- Botón para navegar a las diferentes secciones -->
-              <button mat-button (click)="navigate(item.route)">{{ item.label }}</button>
-            </mat-list-item>
-          </mat-nav-list>
-        </mat-sidenav>
-  
-        <!-- Contenido principal de la página Home -->
-        <mat-sidenav-content>
-          <!-- Botón de Menú Hamburguesa para mostrar/ocultar el menú lateral -->
-          <mat-toolbar color="primary" class="toolbar">
-            <button mat-icon-button (click)="sidenav.toggle(); toogleIcon()">
-              <mat-icon *ngIf="!isSidenavOpen">menu</mat-icon>
-              <mat-icon *ngIf="isSidenavOpen" class="red-icon">close</mat-icon>
-            </button>
-            <span class="toolbar-title">Home</span>
-          </mat-toolbar>
-  
-          <!-- Contenedor de Tarjetas de Sección -->
-          <div class="cards-container">
-            <mat-card class="home-card" *ngFor="let card of cards">
-              <!-- Envoltura para asegurar el botón en el fondo -->
-              <div class="card-wrapper">
-                <!-- Encabezado de la Tarjeta -->
-                <mat-card-header>
-                  <mat-card-title>{{ card.title }}</mat-card-title>
-                </mat-card-header>
-                <!-- Contenido de la Tarjeta -->
-                <mat-card-content>
-                  <p>{{ card.description }}</p>
-                </mat-card-content>
-                <!-- Acciones de la Tarjeta -->
-                <mat-card-actions class="card-actions">
-                  <button mat-raised-button color="primary">Ir a {{ card.title }}</button>
-                </mat-card-actions>
-              </div>
-            </mat-card>
+<div class="row">
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let card of cards">
+    <a href="#!" class="card card-equal card-border-primary rounded-4 card-equal">
+      <div class="card-body d-flex flex-column justify-content-start text-center">
+          <div class="icon-shape icon-xxl bg-light -primary rounded-circle">
+            <h1><i class="bi {{ card.icon }} custom-icon hover-icon"></i></h1>
           </div>
-        </mat-sidenav-content>
-  
-      </mat-sidenav-container>
-  
-    </div>
+        <div>
+          {{ card.title }}
+          {{ card.description }}
+        </div>
+      </div>
+    </a>
   </div>
-  
+</div>
