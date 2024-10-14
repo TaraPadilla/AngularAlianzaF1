@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { FullCalendarModule } from '@fullcalendar/angular'; 
@@ -10,7 +10,8 @@ import { CalendarOptions } from '@fullcalendar/core';
   standalone: true,
   imports: [
     FullCalendarModule,
-    CommonModule, NgbAccordionModule     // Módulo común para directivas y otros componentes básicos
+    CommonModule, NgbAccordionModule,
+    RouterModule
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -31,11 +32,11 @@ export class HomeComponent {
 
   // De la lista siguiente sin modificar nada mas eliminamos el campo mentors
   cards = [
-    { title: 'Clientes',  description: 'Gestiona la información de tus clientes, incluyendo detalles y contacto.', icon: 'bi-people-fill' },
-    { title: 'Propuestas', description: 'Visualiza y administra las propuestas enviadas a los clientes.', icon: 'bi-file-earmark-text-fill' },
-    { title: 'Proyectos', description: 'Revisa el estado y el avance de los proyectos en curso.', icon: 'bi-kanban-fill' },
-    { title: 'Tareas Internas', description: 'Administra las tareas internas de la empresa para asegurar la productividad.', icon: 'bi-list-task' },
-    { title: 'Reportes', description: 'Genera reportes de actividades y rendimiento.', icon: 'bi-bar-chart-fill' },
+    { title: 'Clientes', description: 'Gestiona la información de tus clientes, incluyendo detalles y contacto.', icon: 'bi-people-fill', route: '/buyer' },
+    { title: 'Propuestas', description: 'Visualiza y administra las propuestas enviadas a los clientes.', icon: 'bi-file-earmark-text-fill', route: '/proposal' },
+    { title: 'Proyectos', description: 'Revisa el estado y el avance de los proyectos en curso.', icon: 'bi-kanban-fill', route: '/project' },
+    { title: 'Tareas Internas', description: 'Administra las tareas internas de la empresa para asegurar la productividad.', icon: 'bi-list-task', route: '/innertask' },
+    { title: 'Reportes', description: 'Genera reportes de actividades y rendimiento.', icon: 'bi-bar-chart-fill', route: '/report' },
   ];
 
   isSidenavOpen = false;
