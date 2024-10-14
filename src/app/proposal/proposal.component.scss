@@ -1,92 +1,100 @@
-/* Fondo de la página principal */
-.background {
-    height: 100vh; /* Ocupa toda la altura de la ventana del navegador */
-    width: 100vw; /* Ocupa todo el ancho de la ventana del navegador */
-    background: linear-gradient(135deg, #0b354f, #1f6f8b); /* Gradiente para el fondo */
-    display: flex; /* Usar Flexbox para centrar el contenedor principal */
-    align-items: flex-start; /* Alinear al inicio para evitar que se desborde hacia arriba */
-    justify-content: center; /* Centrar horizontalmente */
-    overflow: auto; /* Permitir scroll si es necesario */
-    padding-top: 40px; /* Añadir más espacio superior para evitar desbordamiento */
-    box-sizing: border-box; /* Incluir el padding en el ancho/altura total */
-}
-
-/* Contenedor principal ajustable y centrado */
-.main-container {
-    padding: 40px 20px; /* Incrementar el espacio en la parte superior para evitar superposición */
-    background: rgba(255, 255, 255, 0.1); /* Fondo claro para destacar la tabla */
-    overflow: auto; /* Permitir scroll si la tabla es más grande */
-    display: flex; /* Flex para manejar los contenidos hijos */
-    flex-direction: column; /* Colocar contenido en columna */
-    box-sizing: border-box; /* Incluir el padding en el ancho/altura total */
-}
-
-/* Estilo de las tarjetas en el Proposal */
-.proposal-card {
-    display: flex;
-    flex-direction: column; /* Alinear elementos en columna */
-    background: rgba(11, 53, 79, 0.9); /* Fondo azul oscuro con transparencia */
-    color: #ffffff; /* Texto blanco */
-    border-radius: 16px; /* Bordes redondeados */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave para el hover */
-    margin: 20px; /* Añadir margen alrededor de las tarjetas para evitar superposiciones */
-    padding: 20px; /* Asegura que el contenido interno tenga suficiente espacio */
-    min-height: 200px; /* Evitar tarjetas demasiado pequeñas */
+.table-bordered {
+    border: 1px solid #dddddd;
+    border-collapse: separate;
+    border-left: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    }
     
-    &:hover {
-        transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
-    }
-}
-
-/* Tabla con estilo Material llamativo */
-.mat-responsive-table {
-    width: 100%; /* Ajustar la tabla al ancho de la pantalla */
-    overflow-x: auto;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    .table {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
     border-collapse: collapse;
-    position: relative; /* Asegura que la tabla no se quede detrás de otros elementos */
-    z-index: 10; /* Coloca la tabla por encima de otros elementos que puedan tener un z-index menor */
-    margin-top: 20px; /* Ajustar margen superior para evitar solapamiento */
-}
-
-.mat-header-cell, .mat-cell {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.mat-header-cell {
-    background-color: #1976d2; /* Color azul vibrante para el encabezado */
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.mat-cell {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo claro para visibilidad */
-    color: #e0e0e0;
-}
-
-/* Estilos para las filas pares */
-.mat-row:nth-child(even) .mat-cell {
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo diferente en las filas pares */
-    color: #fff; /* Color de texto que resalta en filas pares */
-}
-
-.mat-row:nth-child(odd) .mat-cell {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Hacer la tabla responsive */
-@media (max-width: 768px) {
-    .mat-responsive-table {
-        font-size: 14px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    border-spacing: 0;
+    display: table;
     }
-
-    .mat-header-cell, .mat-cell {
-        padding: 8px;
+    
+    .widget.widget-table .table {
+    margin-bottom: 0;
+    border: none;
     }
-}
+    
+    .widget.widget-table .widget-content {
+    padding: 0;
+    }
+    
+    .widget .widget-header + .widget-content {
+    border-top: none;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    }
+    
+    .widget .widget-content {
+    padding: 20px 15px 15px;
+    background: #FFF;
+    border: 1px solid #D5D5D5;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    }
+    
+    .widget .widget-header {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    background: #E9E9E9;
+    background: -moz-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #e9e9e9));
+    background: -webkit-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+    background: -o-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+    background: -ms-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+    background: linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
+    text-shadow: 0 1px 0 #fff;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1),inset 0 1px 0 white,inset 0 -1px 0 rgba(255,255,255,0.7);
+    border-bottom: 1px solid #bababa;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
+    border: 1px solid #D5D5D5;
+    -webkit-border-top-left-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    //-webkit-background-clip: padding-box;
+    }
+    
+    thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    }
+    
+    .widget .widget-header h3 {
+    top: 2px;
+    position: relative;
+    left: 10px;
+    display: inline-block;
+    margin-right: 3em;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    line-height: 18px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+    
+    .widget .widget-header [class^="icon-"], .widget .widget-header [class*=" icon-"] {
+    display: inline-block;
+    margin-left: 13px;
+    margin-right: -2px;
+    font-size: 16px;
+    color: #555;
+    vertical-align: middle;
+    }

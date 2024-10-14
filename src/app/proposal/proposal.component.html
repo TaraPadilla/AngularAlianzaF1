@@ -1,56 +1,48 @@
-<div class="background">
-    <div >
-        <mat-card class="proposal-card">
-            <mat-card-title>Propuesta</mat-card-title>
-            <div class="mat-elevation-z8">      
-                <table mat-table [dataSource]="dataSource" class="mat-responsive-table">
-                    <!-- ID Column -->
-                    <ng-container matColumnDef="id">
-                        <th mat-header-cell *matHeaderCellDef> ID </th>
-                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-                    </ng-container>
+<div class="container">
+    <!-- Filtro y costo Hora y Totales en una fila -->
+    <form class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="total-time" class="col-form-label">Tiempo Total:</label>
+            <input id="total-time" name="totalTime" class="form-control" type="text" [value]="getTotalTime()" readonly />
+        </div>
+        <div class="col-auto mt-3">
+            <label for="total-value" class="col-form-label">Valor Total:</label>
+            <input id="total-value" name="totalValue" class="form-control" type="text" [value]="getTotalCost()" readonly />
+        </div>
+    </form>
 
-                    <!-- Elemento Column -->
-                    <ng-container matColumnDef="elemento">
-                        <th mat-header-cell *matHeaderCellDef> Elemento </th>
-                        <td mat-cell *matCellDef="let element"> {{element.elemento}} </td>
-                    </ng-container>
+    <form class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="table-filtering-search" class="col-form-label">Elemento</label>
+            <input id="table-filtering-search" class="form-control" type="text" [formControl]="filter" />
+        </div>
+        <div class="col-auto">
+            <label for="default-value" class="col-form-label">Precio Hora</label>
+            <input id="costoHora" name="costoHora" class="form-control" type="text" [(ngModel)]="costoHora" />
+        </div>
+    </form>
 
-                    <!-- Tiempo Column -->
-                    <ng-container matColumnDef="tiempo">
-                        <th mat-header-cell *matHeaderCellDef> Tiempo </th>
-                        <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
-                    </ng-container>
-
-                    <!-- Cantidad Column -->
-                    <ng-container matColumnDef="cantidad">
-                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                        <td mat-cell *matCellDef="let element">
-                            <input matInput [(ngModel)]="element.cantidad" placeholder="Cantidad">
-                          </td>
-                    </ng-container>
-
-                    <!-- Horas Column -->
-                    <ng-container matColumnDef="horas">
-                        <th mat-header-cell *matHeaderCellDef> Horas </th>
-                        <td mat-cell *matCellDef="let element">
-                            <input matInput [(ngModel)]="element.horas" placeholder="Horas">
-                          </td>
-                    </ng-container>
-
-                    <!-- Costo (COP) Column -->
-                    <ng-container matColumnDef="costo">
-                        <th mat-header-cell *matHeaderCellDef> Costo (COP) </th>
-                        <td mat-cell *matCellDef="let element">
-                            <input matInput [(ngModel)]="element.costo" placeholder="Costo">
-                          </td>
-                    </ng-container>
-
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                </table>
-            </div>
-        </mat-card>
-    </div>
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th *ngFor="let column of displayedColumns">{{ column }}</th>
+              </tr>
+        </thead>
+        <tbody>
+            <!-- Usamos ngFor para recorrer el dataSource -->
+            <tr *ngFor="let row of filteredData$ | async">
+                <td>{{ row.id }}</td>
+                <td>{{ row.elemento }}</td>
+                <td>{{ row.tiempo }}</td>
+                <td>
+                    <input type="text" class="form-control w-auto" [(ngModel)]="row.cantidad" maxlength="2" style="max-width: 3em;" />
+                </td>
+                <td>{{ row.tiempo * row.cantidad || 0}}</td>
+                <td>{{ row.tiempo * row.cantidad * (costoHora || 0) || 0  | currency:'$':'symbol':'1.0-0' }}</td>
+              </tr>
+            <!-- <tr *ngIf="dataSource.data.length === 0">
+                <td colspan="6" style="text-align: center">No se encontraron elementos</td>
+            </tr>		 -->
+        </tbody>
+    </table>
 </div>

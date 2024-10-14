@@ -1,44 +1,54 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckbox } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridList, MatGridTile } from '@angular/material/grid-list';
-import { MatInputModule } from '@angular/material/input';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { BrowserModule } from '@angular/platform-browser';
 import Papa, * as papa from 'papaparse';
+import { map, Observable, of, startWith } from 'rxjs';
+
 
 @Component({
   selector: 'app-proposal',
   standalone: true,
   imports: [
-    MatFormFieldModule,       // Para usar mat-form-field
-    MatInputModule,           // Para usar matInput
-    MatButtonModule,          // Para los botones de Angular Material
-    MatCardModule, 
-    ReactiveFormsModule,
-    MatGridList, 
-    MatGridTile, 
     FormsModule,
-    CommonModule,
-    MatTableModule,
-    MatCheckbox, HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    CommonModule
   ],       // Importar MatCardModule para mat-card
   templateUrl: './proposal.component.html',
-  styleUrls: ['./proposal.component.scss']
+  styleUrls: ['./proposal.component.scss'],
+  providers: []
 })
-export class ProposalComponent {
+export class ProposalComponent implements OnInit {
+  costoHora: number = 20000;
   displayedColumns: string[] = ['id', 'elemento', 'tiempo', 'cantidad', 'horas', 'costo'];
-  dataSource = new MatTableDataSource<any>();
+	filter = new FormControl('');
+  
+  private originalData: any[] = [];
+  // Almacenar el Observable de los datos filtrados
+  filteredData$: Observable<any[]> = of([]);
+
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.loadCSV();
+    // Escuchar cambios en el campo de búsqueda
+    this.filter.valueChanges.subscribe((value) => {
+      // Filtrar los datos originales con el valor del campo de búsqueda
+      this.filteredData$ = of(this.originalData).pipe(
+        map((data) => {
+          return data.filter((item) => {
+            return item.elemento.toLowerCase().includes((value ?? '').toLowerCase());
+          });
+        })
+      );
+    });
   }
+
+
 
   loadCSV(): void {
     // Cargar el archivo CSV desde la carpeta assets
@@ -52,7 +62,9 @@ export class ProposalComponent {
           complete: (result) => {
             console.log(result.data); 
             // Asignar el resultado parseado al dataSource de la tabla
-            this.dataSource.data = result.data;
+            this.originalData = result.data;
+            // Emitir los datos originales para mostrarlos inicialmente
+            this.filteredData$ = of(this.originalData);
           },
           error: (error: HttpErrorResponse) => {
             console.error('Error al leer el CSV: ', error);
@@ -64,6 +76,33 @@ export class ProposalComponent {
       }
     );
   }
+
+  // Implementar el filter
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.filteredData$ = of(this.originalData).pipe(
+      map((data) => {
+        return data.filter((item) => {
+          return item.elemento.toLowerCase().includes(filterValue.toLowerCase());
+        });
+      })
+    );
+  }
+
+  // Calcular el costo total de la propuesta
+  getTotalCost(): number {
+    return 0;
+  }
+
+  // Calcular el tiempo total de la propuesta
+  getTotalTime(): number {
+    return 0;
+  }
+
 }
+
+
+
+
 
 
